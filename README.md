@@ -1,1 +1,2 @@
 # SeleniumJUTest
+$ mvn clean test
