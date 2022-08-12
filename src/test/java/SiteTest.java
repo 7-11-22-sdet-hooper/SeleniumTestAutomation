@@ -16,7 +16,7 @@ class SiteTest
 	//These statements will be run before each unit test.
 	@BeforeEach public void beforeTest()
 	{
-		  //System.setProperty("webdriver.chrome.driver", "drivers/chromedriver_linux64/chromedriver");
+		  System.setProperty("webdriver.chrome.driver", ".\\drivers\\chromeDriver\\chromedriver.exe");
 		  driver = new ChromeDriver();
 		  driver.get("https://bespoke-scone-ba3a56.netlify.app/");
 	}
@@ -42,7 +42,7 @@ class SiteTest
 	{
         String cardName = "";  
 		cardName = driver.findElement(By.xpath("//*[@id=\"1\"]")).getText();
-		assertEquals(cardName, "booolean");
+		assertEquals(cardName, "boolean");
 	}
 
 	@Test
