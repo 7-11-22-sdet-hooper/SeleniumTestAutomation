@@ -6,6 +6,8 @@ import org.openqa.selenium.By;
 
 class WebPageTest 
 {
+	// TODO Add method(s) to test cards for a blank or empty titles.
+	// TODO Modify CardDefinition methods to test card title against definition from Database.
 	@Test
 	public void testWebPageTitle()
 	{
@@ -26,8 +28,7 @@ class WebPageTest
         System.setProperty("webdriver.chrome.driver", "C:\\chromeDriver\\chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
 		driver.get("https://bespoke-scone-ba3a56.netlify.app/");
-		 cardName = driver.findElement(By.xpath("//*[@id=\"1\"]")).getText();		
-		//the title of flash card web page is blank for now so this should be true....
+		cardName = driver.findElement(By.xpath("//*[@id=\"1\"]")).getText();
 		assertEquals(cardName, "boolean");
 		driver.quit();
 	}
@@ -39,7 +40,7 @@ class WebPageTest
         System.setProperty("webdriver.chrome.driver", "C:\\chromeDriver\\chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
 		driver.get("https://bespoke-scone-ba3a56.netlify.app/");
-		 cardName = driver.findElement(By.xpath("//*[@id=\"2\"]")).getText();		
+		cardName = driver.findElement(By.xpath("//*[@id=\"2\"]")).getText();		
 		assertEquals(cardName, "string");
 		driver.quit();
 	}
@@ -51,15 +52,15 @@ class WebPageTest
         System.setProperty("webdriver.chrome.driver", "C:\\chromeDriver\\chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
 		driver.get("https://bespoke-scone-ba3a56.netlify.app/");
-		 cardName = driver.findElement(By.xpath("//*[@id=\"3\"]")).getText();		
-		 assertEquals(cardName, "integer");
+		cardName = driver.findElement(By.xpath("//*[@id=\"3\"]")).getText();		
+		assertEquals(cardName, "integer");
 		driver.quit();
 	}
 
 	@Test
 	public void testValaidCardTitleLength()
 	{
-		final int MAXCHARS = 12;
+		final int MAXCHARS = 12;	//max number of letters that will fit on a card without hanging off
         String cardName = "";
         boolean tooManyChar;
         System.setProperty("webdriver.chrome.driver", "C:\\chromeDriver\\chromedriver.exe");
@@ -67,10 +68,10 @@ class WebPageTest
 		driver.get("https://bespoke-scone-ba3a56.netlify.app/");
 		cardName = driver.findElement(By.xpath("//*[@id=\"3\"]")).getText();
 		
-		if (cardName.length() <= MAXCHARS)
-			tooManyChar = false;
-		else
+		if (cardName.length() > MAXCHARS)
 			tooManyChar = true;
+		else
+			tooManyChar = false;
 		
 		assertFalse(tooManyChar);
 		driver.quit();
@@ -88,8 +89,6 @@ class WebPageTest
 	     
 		cardDef = driver.findElement(By.xpath("//*[@id=\"3\"]/div/p")).getText();		
 		assertEquals(cardDef, "numbers without a fractional component, and don't support decimal points");
-		
-		System.out.println("The defenet is:" + cardDef);
 		driver.quit();
 	}
 	
@@ -106,8 +105,6 @@ class WebPageTest
 		cardDef = driver.findElement(By.xpath("//*[@id=\"2\"]/div/p")).getText();		
 		
 		assertEquals(cardDef, "series of characters that are interpreted literally by a script");
-		
-		System.out.println("The defenet is:" + cardDef);
 		driver.quit();
 	}
 	
@@ -119,13 +116,11 @@ class WebPageTest
 		WebDriver driver = new ChromeDriver();
 		driver.get("https://bespoke-scone-ba3a56.netlify.app/");
 		
-	     driver.findElement(By.id("1")).click();
+	    driver.findElement(By.id("1")).click();
 
 		cardDef = driver.findElement(By.xpath("//*[@id=\"1\"]/div/p")).getText();		
 		
 		assertEquals(cardDef, "logical data type that can have only the values true or false");
-		
-		System.out.println("The defenet is:" + cardDef);
 		driver.quit();
 	}
 }
