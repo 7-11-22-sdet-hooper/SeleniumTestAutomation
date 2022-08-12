@@ -9,7 +9,6 @@ import org.openqa.selenium.By;
 class SiteTest 
 {
 	WebDriver driver;
-
 	// TODO Add method(s) to test cards for a blank or empty titles.
 	// TODO Modify CardDefinition methods to test card title against definition from Database.
 	
@@ -42,7 +41,7 @@ class SiteTest
 	{
         String cardName = "";  
 		cardName = driver.findElement(By.xpath("//*[@id=\"1\"]")).getText();
-		assertEquals(cardName, "boolean");
+		assertEquals(cardName, "booolean");
 	}
 
 	@Test
@@ -62,7 +61,7 @@ class SiteTest
 	}
 
 	@Test
-	public void testValaidCardTitleLength()
+	public void testValidCardTitleLength()
 	{
 		final int MAXCHARS = 12;	//max number of letters that will fit on a card without hanging off
         String cardName = "";
