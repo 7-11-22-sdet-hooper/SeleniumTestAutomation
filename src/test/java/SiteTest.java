@@ -11,11 +11,12 @@ class SiteTest
 	WebDriver driver;
 	// TODO Add method(s) to test cards for a blank or empty titles.
 	// TODO Modify CardDefinition methods to test card title against definition from Database.
+	// TODO Add test methods that use WebElement Class to confirm that elements are properly displayed.
 	
 	//These statements will be run before each unit test.
 	@BeforeEach public void beforeTest()
 	{
-		  System.setProperty("webdriver.chrome.driver", "C:\\chromeDriver\\chromedriver.exe");
+		  System.setProperty("webdriver.chrome.driver", ".\\drivers\\chromeDriver\\chromedriver.exe");
 		  driver = new ChromeDriver();
 		  driver.get("https://bespoke-scone-ba3a56.netlify.app/");
 	}
