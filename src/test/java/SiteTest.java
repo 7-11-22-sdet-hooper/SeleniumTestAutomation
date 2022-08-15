@@ -86,7 +86,7 @@ class SiteTest
 		cardDef = driver.findElement(By.xpath("//*[@id=\"3\"]/div/p")).getText();		
 		assertEquals(cardDef, "numbers without a fractional component, and don't support decimal points");
 	}
-	
+	 
 	@Test
 	public void testStringCardDefinition()
 	{
@@ -105,5 +105,15 @@ class SiteTest
 
 		cardDef = driver.findElement(By.xpath("//*[@id=\"1\"]/div/p")).getText();
 		assertEquals(cardDef, "logical data type that can have only the values true or false");
+	}
+	
+	@Test
+	public void testNotBooleanCardDefinition()
+	{
+        String cardDef = "";
+	    
+
+		cardDef = driver.findElement(By.xpath("//*[@id=\"1\"]/div/p")).getText();
+		assertEquals(cardDef, "");
 	}
 }
