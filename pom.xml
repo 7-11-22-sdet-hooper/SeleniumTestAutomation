@@ -52,11 +52,16 @@
 	       <version>1.7.5</version>
 	   </dependency>
 	   
-	   <dependency>
-		    <groupId>org.apache.maven.plugins</groupId>
-		    <artifactId>maven-jxr-plugin</artifactId>
-		    <version>3.3.0</version>
-		</dependency>
     </dependencies>
+    
+    <reporting>
+	    <plugins>
+	        <plugin>
+			    <groupId>org.apache.maven.plugins</groupId>
+			    <artifactId>maven-jxr-plugin</artifactId>
+			    <version>3.3.0</version>
+			</plugin>
+	    </plugins>
+	</reporting>
     
 </project>
