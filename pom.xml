@@ -4,19 +4,17 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     
-    
   <groupId>unittests</groupId>
   <artifactId>SeleniumTestAutomation</artifactId>
   <version>0.0.1-SNAPSHOT</version>
- 
   
-    <properties>
-        <maven.compiler.source>1.8</maven.compiler.source>
+   <properties>
+		<maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
-        <junit-jupiter.version>5.9.0</junit-jupiter.version>
-    </properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
+		<junit-jupiter.version>5.9.0</junit-jupiter.version>
+   </properties>
 
     <build>
         <plugins>
@@ -35,23 +33,30 @@
             <version>${junit-jupiter.version}</version>
             <scope>test</scope>
         </dependency>
-        	<dependency>
+        
+        <dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-java</artifactId>
 			<version>4.4.0</version>
 		</dependency>
 		
-	<dependency>
-       <groupId>org.slf4j</groupId>
-       <artifactId>slf4j-api</artifactId>
-       <version>1.7.5</version>
-   </dependency>
-   <dependency>
-       <groupId>org.slf4j</groupId>
-       <artifactId>slf4j-log4j12</artifactId>
-       <version>1.7.5</version>
-   </dependency>
-		
+		<dependency>
+	       <groupId>org.slf4j</groupId>
+	       <artifactId>slf4j-api</artifactId>
+	       <version>1.7.5</version>
+	   </dependency>
+	   
+	   <dependency>
+	       <groupId>org.slf4j</groupId>
+	       <artifactId>slf4j-log4j12</artifactId>
+	       <version>1.7.5</version>
+	   </dependency>
+	   
+	   <dependency>
+		    <groupId>org.apache.maven.plugins</groupId>
+		    <artifactId>maven-jxr-plugin</artifactId>
+		    <version>3.3.0</version>
+		</dependency>
     </dependencies>
-
+    
 </project>
