@@ -1,8 +1,11 @@
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import java.net.MalformedURLException;
@@ -15,11 +18,13 @@ import java.util.Map;
 class SiteRemoteTest 
 {
 	WebDriver driver;
+	static URL url;
+	static ChromeOptions options;
 	
-	//These statements will be run before each test.
-	@BeforeEach public void beforeTest() throws MalformedURLException
+	//This method will run only once (performs pre-setup of our remoteWebDriver)
+	@BeforeAll public static void beforeAllTest() throws MalformedURLException
 	{
-		ChromeOptions options = new ChromeOptions();
+		options = new ChromeOptions();
 		options.setPlatformName("Windows 11");
 		options.setBrowserVersion("latest");
 
@@ -28,7 +33,7 @@ class SiteRemoteTest
 		sauceOptions.put("accessKey", System.getenv("SAUCE_ACCESS_KEY"));
 		options.setCapability("sauce:options", sauceOptions);
 			
-		//If environmental variables SAUCE_USERNAME and SAUCE_ACCESS_KEY have not yet been set by user
+		//If environmental variables SAUCE_USERNAME or SAUCE_ACCESS_KEY have not yet been set by user
 		if (System.getenv("SAUCE_USERNAME") == null || System.getenv("SAUCE_ACCESS_KEY") == null)
 		{
 			throw new MalformedURLException("ERROR: Please set correct user enviroment variables (view Readme.md)");
@@ -37,25 +42,39 @@ class SiteRemoteTest
 		{
 			//build URL string using environmental variables (which contain our user name and access key)
 			String sauceLabURLString = "https://" + System.getenv("SAUCE_USERNAME") + ":" + System.getenv("SAUCE_ACCESS_KEY") + "@ondemand.us-west-1.saucelabs.com:443/wd/hub";
-			URL url = new URL(sauceLabURLString);
-			driver = new RemoteWebDriver(url, options);
-			driver.get("https://bespoke-scone-ba3a56.netlify.app");
+			url = new URL(sauceLabURLString);
 		}
 	}
 	
+	//These statements will be run before each test.
+	@BeforeEach public void beforeEachTest()
+	{
+			driver = new RemoteWebDriver(url, options);
+			driver.get("https://bespoke-scone-ba3a56.netlify.app");
+	}
+	
 	//This statement will run after each test.
-	@AfterEach public void afterTest()
+	@AfterEach public void afterEachTest()
 	{
 		driver.quit();
 	}
 	
-	//Test case
+	// TODO More specific functional test cases coming soon...
+	//DEMO Test cases
 	@Test
-	public void testWebPageTitle()
+	public void WebPageTitleTest()
 	{
 		String title = driver.getTitle();
 		
 		//the title of flash card web page is blank for now so this should be true....
 		assertEquals("", title);
+	}
+	
+	@Test
+	public void firstCardNameDemoTest()
+	{
+		WebElement element1 = driver.findElement(By.id("OOP1"));
+		String cardTitle = element1.getText();
+		assertEquals("inheritance", cardTitle);
 	}
 }
