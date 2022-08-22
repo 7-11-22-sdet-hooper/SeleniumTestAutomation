@@ -1,10 +1,15 @@
 import static org.junit.jupiter.api.Assertions.*;
+
+import java.time.Duration;
+
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.By;
 
 class LocalWebdriverTest 
@@ -35,13 +40,16 @@ class LocalWebdriverTest
 		String title = driver.getTitle();
 		
 		//the title of flash card web page is blank for now so this should be true....
-		assertEquals(title, "");
+		assertEquals("", title);
 	}
 
 	@Test
 	public void firstCardNameDemoTest()
 	{
-		WebElement element1 = driver.findElement(By.id("OOP1"));
+		// Explicitly wait until card element becomes clickable - timeout after 10 seconds
+		  WebElement element1 = new WebDriverWait(driver, Duration.ofSeconds(10))
+		          .until(ExpectedConditions.elementToBeClickable(By.id("OOP1")));
+		     
 		String cardTitle = element1.getText();
 		assertEquals("inheritance", cardTitle);
 	}

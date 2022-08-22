@@ -8,8 +8,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.time.Duration;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -73,7 +77,10 @@ class RemoteWebdriverTest
 	@Test
 	public void firstCardNameDemoTest()
 	{
-		WebElement element1 = driver.findElement(By.id("OOP1"));
+		// Explicitly wait until card element becomes clickable - timeout after 10 seconds
+		  WebElement element1 = new WebDriverWait(driver, Duration.ofSeconds(10))
+		          .until(ExpectedConditions.elementToBeClickable(By.id("OOP1")));
+		     
 		String cardTitle = element1.getText();
 		assertEquals("inheritance", cardTitle);
 	}
