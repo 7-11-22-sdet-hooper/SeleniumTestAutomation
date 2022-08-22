@@ -1,13 +1,13 @@
 # SeleniumTestAutomation
 Maven Java project; Runs JUnit test cases that implement either Selenium ChromeDriver or RemoteWebdriver;
 
-__To run local webdriver (ChromeDriver) tests from command line:__
+__To run ChromeDriver tests from command line:__
 
 Navigate to project directory and enter:
 
     $ mvn -Dtest=LocalWebdriverTest test
     
-__To run remote webdriver (RemoteWebDriver) tests from command line:__
+__To run remote RemoteWebDriver tests from command line:__
 
 Navigate to project directory and enter:
 
