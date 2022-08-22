@@ -1,7 +1,26 @@
 # SeleniumTestAutomation
-Maven Java project; Runs JUnit unit tests that implement Selenium RemoteWebdriver;
+Maven Java project; Runs JUnit test cases that implement either Selenium ChromeDriver or RemoteWebdriver;
 
-__IMPORTANT INITIAL SETUP:__ (on Windows)
+__To run local webdriver (ChromeDriver) tests from command line:__
+
+Navigate to project directory and enter:
+
+    $ mvn -Dtest=LocalWebdriverTest test
+    
+__To run remote webdriver (RemoteWebDriver) tests from command line:__
+
+Navigate to project directory and enter:
+
+    $ mvn -Dtest=RemoteWebdriverTest test
+    
+    
+__To run all both local and remote tests from Eclipse:__
+
+  Right click project in the Package Explorer window->  Run As -> Maven test
+  
+  -------------------------------------------------------------------------------------------------------------------------------------
+  
+  __IMPORTANT INITIAL SETUP:__ (for Windows) (If you don't plan on using RemoteWebDriver capibilities then please disregard)
 1. Create an account or 'sign in with github' at (Sauce Labs)[https://app.saucelabs.com/getting-started/guides/selenium]
 2. Locate your Sauce Labs username and access key
 3. Go to start menu -> search for 'edit environment variables'-> click 'Environmental Variables...' button -> and locate the 'User variables for PC' section
@@ -11,15 +30,3 @@ __IMPORTANT INITIAL SETUP:__ (on Windows)
 You can confirm that these variables are set correctly by opening a powershell terminal and entering in:
 
     $env:SAUCE_USERNAME
-
--------------------------------------------------------------------------------------------------------------------------------------
-__To run from command line:__
-
-Navigate to project directory and enter:
-
-    $ mvn clean test
-    
-    
-__To run from Eclipse:__
-
-  Right click project in the Package Explorer window->  Run As -> Maven test
