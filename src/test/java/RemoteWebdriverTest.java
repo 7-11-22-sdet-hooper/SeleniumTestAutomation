@@ -82,6 +82,6 @@ class RemoteWebdriverTest
 		          .until(ExpectedConditions.elementToBeClickable(By.id("OOP1")));
 		     
 		String cardTitle = element1.getText();
-		assertEquals("iinheritance", cardTitle);
+		assertEquals("inheritance", cardTitle);
 	}
 }
