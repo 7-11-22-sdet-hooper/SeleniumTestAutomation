@@ -21,7 +21,7 @@ class LocalWebdriverTest
 	{
 		  System.setProperty("webdriver.chrome.driver", ".\\drivers\\chromeDriver\\chromedriver.exe");
 		  driver = new ChromeDriver();
-		  driver.get("https://sdetinterview.com/");
+		  driver.get("https://test.javalearninglab.com/");
 	}
 	
 	//This statement will run after each unit test.
