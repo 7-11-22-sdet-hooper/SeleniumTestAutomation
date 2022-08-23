@@ -54,7 +54,7 @@ class RemoteWebdriverTest
 	@BeforeEach public void beforeEachTest()
 	{
 			driver = new RemoteWebDriver(url, options);
-			driver.get("https://bespoke-scone-ba3a56.netlify.app");
+			driver.get("https://sdetinterview.com/");
 	}
 	
 	//This statement will run after each test.
