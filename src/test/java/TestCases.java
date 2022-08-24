@@ -35,7 +35,7 @@ public class TestCases
 		try
 		{
 		// Explicitly wait until element becomes clickable - timeout after 10 seconds
-		  new WebDriverWait(driver, Duration.ofSeconds(10))
+		  new WebDriverWait(driver, Duration.ofSeconds(5))
 		          .until(ExpectedConditions.elementToBeClickable(By.id("OOP1")));
 		}
 		catch (TimeoutException e)
@@ -56,14 +56,14 @@ public class TestCases
 		try 
 		{
 			// Explicitly wait until quiz side-bar button becomes clickable - timeout after 10 seconds
-			WebElement element1 = new WebDriverWait(driver, Duration.ofSeconds(10))
+			WebElement element1 = new WebDriverWait(driver, Duration.ofSeconds(5))
 			          .until(ExpectedConditions.elementToBeClickable(By.xpath("//a[@href='/quiz']")));
 			
 			//click quiz side-bar button
 			element1.click();
 			
 			// Explicitly wait until first quiz question becomes visible - timeout after 10 seconds
-			WebElement questionElement = new WebDriverWait(driver, Duration.ofSeconds(10))
+			WebElement questionElement = new WebDriverWait(driver, Duration.ofSeconds(5))
 			          .until(ExpectedConditions.visibilityOfElementLocated(By.className("quiz-question")));
 			// Copy text from the first question element;
 			String questionText = questionElement.getText();
