@@ -1,5 +1,5 @@
 # SeleniumTestAutomation
-Maven Java project; Runs JUnit test cases that implement either Selenium ChromeDriver or RemoteWebdriver;
+Maven Java project - Uses Selenium ChromeDriver and RemoteWebdriver to run JUnit test cases against our interview prep Web App.
 
 __To run ChromeDriver tests from command line:__
 
