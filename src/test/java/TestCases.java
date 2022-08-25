@@ -96,15 +96,12 @@ public class TestCases
 				accessible = true;
 			}
 		}
-		
-		//if quiz times out, this will be triggered
-		catch(TimeoutException e)
+		catch(TimeoutException e) //if quiz times out, this will be triggered
 		{
 			System.out.println("Error: Webelement search timeout");
 			accessible = false;
 		}
-		//whether the quiz passed or failed or any exception thrown, this will trigger at the end no matter what
-		finally
+		finally //whether the quiz passed or failed or any exception thrown, this will trigger at the end no matter what
 		{
 			assertTrue(accessible);
 		}
