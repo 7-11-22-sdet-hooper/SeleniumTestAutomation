@@ -12,7 +12,6 @@ import java.util.Map;
 //See readme.md for more details.
 class RemoteWebdriverTest extends TestCases
 {
-	
 	static URL url;
 	static ChromeOptions options;
 	
