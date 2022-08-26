@@ -1,6 +1,7 @@
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import java.time.Duration;
+import java.util.List;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
@@ -44,6 +45,74 @@ public class TestCases
 		finally
 		{	//runs whether exception is thrown or not
 			assertTrue(isClickable);
+		}
+	}
+	
+	@Test
+	public void onlyOneCardClickableAtATimeTest()
+	{
+		boolean fail = false;
+		try
+		{
+		
+			// wait until first card to becomes clickable before we begin! 
+			new WebDriverWait(driver, Duration.ofSeconds(5))
+			        .until(ExpectedConditions.elementToBeClickable(By.id("OOP1")));
+			
+			//confirm that no cards are currently clicked when the page is first loaded
+			List<WebElement> allClickedCards = driver.findElements(By.className("active-circle-con"));
+			if (!allClickedCards.isEmpty())//if a card is already clicked
+			{
+				fail = true;
+			}
+			
+			//list will hold all card elements
+			List<WebElement> allCards = driver.findElements(By.className("card"));
+			
+			WebElement currentCard;
+			
+			//for each card
+			for (int i = 0; i < allCards.size(); i++)
+			{
+				currentCard = allCards.get(i); //point to current card
+				currentCard.click();
+				allClickedCards = driver.findElements(By.className("active-circle-con")); //get list of all clicked cards
+				
+				if (allClickedCards.size() != 1)//if no cards or multiple cards clicked then fail
+				{
+					fail = true;
+					
+					if(!currentCard.equals(allClickedCards.get(0)) && fail == false)//if the card currently clicked is not the card that was clicked on
+					{																//and the there is only one card (otherwise fail would be true by now)
+						fail = true;
+					}
+				}
+				
+				//wait until current card becomes clickable again
+				new WebDriverWait(driver, Duration.ofSeconds(5))
+		        .until(ExpectedConditions.elementToBeClickable(currentCard));
+				
+				currentCard.click();
+				
+				//generate updated list of all currently clicked cards
+				allClickedCards = driver.findElements(By.className("active-circle-con")); 
+				
+				//if any cards are clicked then fail
+				if (allClickedCards.size() != 0)
+				{
+					fail = true;
+				}
+			}
+		
+		}
+		catch(TimeoutException e)
+		{
+			System.out.println("Error: Webelement search timeout");
+			fail = true;
+		}
+		finally
+		{	//assert "didn't fail"
+			assertTrue(!fail);
 		}
 	}
 	
