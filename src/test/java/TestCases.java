@@ -49,7 +49,7 @@ public class TestCases
 	}
 	
 	@Test
-	public void onlyOneCardClickableAtATimeTest()
+	public void onlyOneCardCanBeClickedAtATimeTest()
 	{
 		boolean fail = false;
 		try
