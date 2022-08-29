@@ -149,6 +149,7 @@ public class TestCases
 	public void allQuizQuestionsAccessableTest()
 	{
 		boolean accessible = false; // this field will only become true is we are able to navigate threw the full quiz
+		boolean isLastQuestion = false;
 		
 		try
 		{
@@ -159,8 +160,9 @@ public class TestCases
 			//click quiz side-bar button
 			element1.click();	
 			
+			
 			//for each quiz question
-			for (int i = 0; i < 24; i++)
+			do
 			{
 				//wait for quiz question to become visible - timeout after 10 secs
 				WebElement questionElement = new WebDriverWait(driver, Duration.ofSeconds(5))
@@ -184,12 +186,22 @@ public class TestCases
 					          .until(ExpectedConditions.visibilityOfElementLocated(By.className("quiz-answer")));
 					questionElement.click();
 				}
+
+				try
+				{
+				//if is the last question
+					//make sure 'next' button is loaded and click it
+					WebElement nextPageElement = new WebDriverWait(driver, Duration.ofSeconds(5))
+					          .until(ExpectedConditions.visibilityOfElementLocated(By.id("quiz-next-button")));
+					nextPageElement.click();
+				}
+				//no 'next button' implies that it is the last question
+				catch (TimeoutException e)
+				{
+					isLastQuestion = true;
+				}
 				
-				//make sure 'next' button is loaded and click it
-				WebElement nextPageElement = new WebDriverWait(driver, Duration.ofSeconds(5))
-				          .until(ExpectedConditions.visibilityOfElementLocated(By.id("quiz-next-button")));
-				nextPageElement.click();
-			}
+			}while (!isLastQuestion);
 			
 			//wait for last quiz question to become visible then click submit
 			WebElement questionElement = new WebDriverWait(driver, Duration.ofSeconds(5))
