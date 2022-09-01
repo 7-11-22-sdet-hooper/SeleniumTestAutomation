@@ -6,8 +6,8 @@ Maven Java project - Uses Selenium ChromeDriver and RemoteWebdriver to run JUnit
 
 ## Authors (Testing Team)
 - Brendan [@bgabie](https://github.com/bgabie)
-- Elija [@lijthomas55](https://github.com/lijthomas55)
-- Jarred [@Dragonaut101](https://github.com/Dragonaut101)
+- Elijah [@lijthomas55](https://github.com/lijthomas55)
+- Jared [@Dragonaut101](https://github.com/Dragonaut101)
 - Margaret [@margaretmariano](https://github.com/margaretmariano)
 - Terrence [@tmitc](https://www.github.com/tmitc)
 ## Acknowledgements
