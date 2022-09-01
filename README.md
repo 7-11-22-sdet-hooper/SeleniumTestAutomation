@@ -1,28 +1,22 @@
-# SeleniumTestAutomation 
-Maven Java project - Uses Selenium ChromeDriver and RemoteWebdriver to run JUnit test cases against our interview prep Web App.  
+# Selenium Test Automation
 
-We have three run options:
- <br />__To run tests from local machine using ChromeDriver:__
+Maven Java project - Uses Selenium ChromeDriver and RemoteWebdriver to run JUnit and Cucumber/Gherkin test cases against our interview prep Web App.
 
-Navigate to project directory from command line and enter:
 
-    mvn -Dtest=LocalWebdriverTest test
-    
- <br />__To run tests from remote machine using RemoteWebDriver:__
 
-Navigate to project directory from command line and enter:
+## Authors (Testing Team)
+- Brendan [@bgabie](https://github.com/bgabie)
+- Elija [@lijthomas55](https://github.com/lijthomas55)
+- Jarred [@Dragonaut101](https://github.com/Dragonaut101)
+- Margaret [@margaretmariano](https://github.com/margaretmariano)
+- Terrence [@tmitc](https://www.github.com/tmitc)
+## Acknowledgements
 
-    mvn -Dtest=RemoteWebdriverTest test
-    
- <br />__To run our Cucumber/Gherkin tests (from remote machine):__
-
-Navigate to project directory from command line and enter:
-
-    mvn -Dtest=CucumberTestRun test
-
-  
+ - The project was created using [this Selenium Starter Project](https://www.arhohuttunen.com/junit-5-maven-example/).
+ - Project utilizes free remote browser testing from [SauceLabs](https://saucelabs.com/).
+ - Special thanks to [@DilanTanner](https://github.com/DilanTanner) for the starter code for both this general [Selenium project](https://github.com/7-11-22-sdet-hooper/SeleniumDemoForWebApp) as well as the [Cucumber](https://github.com/DilanTanner/Cucumber) portion of the code.
   -------------------------------------------------------------------------------------------------------------------------------------
-  
+  </br></br>
   __IMPORTANT INITIAL SETUP:__ (for Windows) (If you don't plan on using RemoteWebDriver capibilities then please disregard)
 1. Create an account or 'sign in with github' at (Sauce Labs)[https://app.saucelabs.com/getting-started/guides/selenium]<br /><br />
 2. Locate your Sauce Labs username and access key: 
@@ -39,3 +33,24 @@ Navigate to project directory from command line and enter:
 
     $env:SAUCE_USERNAME
 <br /><p align="center"> <img width="750" height="200" src="https://github.com/7-11-22-sdet-hooper/SeleniumTestAutomation/blob/main/media/media3.png?raw=true"> </p>
+-------------------------------------------------------------------------------------------------------------------------------------
+<br /><br />
+
+_Run options_
+ <br /><br />__To run tests from local machine using ChromeDriver:__
+
+Navigate to project directory from command line and enter:
+
+    mvn -Dtest=LocalWebdriverTest test
+    
+ <br />__To run tests from remote machine using RemoteWebDriver:__
+
+Navigate to project directory from command line and enter:
+
+    mvn -Dtest=RemoteWebdriverTest test
+    
+ <br />__To run our Cucumber/Gherkin tests (from remote machine):__
+
+Navigate to project directory from command line and enter:
+
+    mvn -Dtest=CucumberTestRun test
