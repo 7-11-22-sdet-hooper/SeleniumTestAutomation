@@ -15,6 +15,9 @@ Maven Java project - Uses Selenium ChromeDriver and RemoteWebdriver to run JUnit
  - The project was created using [this Selenium Starter Project](https://www.arhohuttunen.com/junit-5-maven-example/).
  - Project utilizes free remote browser testing from [SauceLabs](https://saucelabs.com/).
  - Special thanks to [@DilanTanner](https://github.com/DilanTanner) for the starter code for both this general [Selenium project](https://github.com/7-11-22-sdet-hooper/SeleniumDemoForWebApp) as well as the [Cucumber](https://github.com/DilanTanner/Cucumber) portion of the code.
+
+<p align="center"> <img width="1000" height="250" src="https://github.com/7-11-22-sdet-hooper/SeleniumTestAutomation/blob/main/media/FlowChartTA.png?raw=true"> </p>
+
   -------------------------------------------------------------------------------------------------------------------------------------
   </br></br>
   __IMPORTANT INITIAL SETUP:__ (for Windows) (If you don't plan on using RemoteWebDriver capibilities then please disregard)
