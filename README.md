@@ -58,4 +58,4 @@ Navigate to project directory from command line and enter:
     
  </br>
 
-<p align="center"> <img width="1000" height="250" src="https://github.com/7-11-22-sdet-hooper/SeleniumTestAutomation/blob/main/media/FlowChartTA.png?raw=true"> </p>
+<p align="center"> <img width="1150" height="282" src="https://github.com/7-11-22-sdet-hooper/SeleniumTestAutomation/blob/main/media/FlowChartTA.png?raw=true"> </p>
